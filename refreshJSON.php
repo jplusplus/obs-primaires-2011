@@ -10,7 +10,7 @@ $json = '';
 echo $_GET['callback'] . '( {';
 
 if (filemtime($file) < (time() - $expire)) {
-    //$json = file_get_contents($distant_file);
+    $json = file_get_contents($distant_file);
 
     if ($json != '') {
         $fh = fopen($file, 'w');

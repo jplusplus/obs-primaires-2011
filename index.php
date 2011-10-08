@@ -23,6 +23,7 @@
             //initialise les variables globales
             var chart;
             var chart_images = {};
+            var candidats = ['arnaudmontebourg', 'martineaubry', 'jeanmichelbaylet', 'manuelvalls', 'francoishollande', 'segoleneroyal'];
 
             var chart_options ={
                 chart: {
@@ -47,6 +48,7 @@
                 },
                 yAxis: {
                     min: 0,
+                    max:80,
                     title: {
                         text: 'Score (%)'
                     }

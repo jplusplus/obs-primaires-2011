@@ -25,7 +25,13 @@ function JSON2chart(){
             var votants = data.votants;
 
             $('#votants').html(votants);
-            $('#blancs_nuls').html(Math.round((data.blancs_nuls / votants)*10000)/100 + "%");
+
+            var blancs_nuls = Math.round((data.blancs_nuls / votants)*10000)/100 + "%"
+            if (votants == 0){
+                blancs_nuls = 0;
+            }
+            
+            $('#blancs_nuls').html(blancs_nuls);
             $('#bureaux_vote').html(data.bureaux_vote);
 
             var completion =(eval(data.bureaux_vote));
@@ -33,40 +39,43 @@ function JSON2chart(){
 
             var heure_maj = data.heure_maj;
             heure_maj = heure_maj.replace("+02:00", "Z");
-
-            $('#derniere_maj').html(prettyDate(heure_maj));
-
-            if (data.candidats.length>0){
-                //vide les données sur le chart
-                chart_options.series[0].data = new Array();
-                chart_options.xAxis.categories = new Array();
-
-                //remplit le chart avec les données du JSON
-                $.each(data.candidats[0], function(key, val) {
-                    chart_options.xAxis.categories.push(val['nom_prenom']);
-
-                    var point_valeur = val['pourcentage'];
-                    var candidat_short = key.substring(0,3);
-                    var point_couleur = details_candidat[candidat_short].color;
-                    var point_style = {
-                        y: point_valeur,
-                        color:point_couleur
-                    };
-
-                    chart_images[candidat_short] = {
-                        y: point_valeur
-                    };
-
-                    chart_options.series[0].data.push(point_style);
-                });
-
-                //actualise le chart
-                renderChart();
-                addImages(chart_images);
-
-            }else{
-                throw_error("Aucun résultat disponible dans le fichier JSON");
+            var derniere_maj = prettyDate(heure_maj);
+            if (derniere_maj == ''){
+                derniere_maj = "à l'instant";
             }
+
+            $('#derniere_maj').html(derniere_maj);
+
+            
+            //vide les données sur le chart
+            chart_options.series[0].data = new Array();
+            chart_options.xAxis.categories = new Array();
+
+            //remplit le chart avec les données du JSON
+            $.each(candidats, function(key, val) {
+                var candidat_data = data[val];
+                chart_options.xAxis.categories.push(candidat_data['nom_prenom']);
+
+                var point_valeur = candidat_data['pourcentage'];
+
+                var candidat_short = val.substring(0,3);
+                var point_couleur = details_candidat[candidat_short].color;
+                var point_style = {
+                    y: point_valeur,
+                    color:point_couleur
+                };
+
+                chart_images[candidat_short] = {
+                    y: point_valeur
+                };
+
+                chart_options.series[0].data.push(point_style);
+            });
+
+            //actualise le chart
+            renderChart();
+            addImages(chart_images);
+
         }else{
             throw_error("Aucune donnée dans le fichier JSON");
         }
@@ -98,56 +107,56 @@ function addImages(chart_images){
 var details_candidat = {
     //Martine Aubry
     "mar":{
-        color:"#D9D5D2",
+        color:"#82858F",
         image:"images/martine.png",
-        imagew:80,
-        imageh:128,
-        imagey_correction:-120,
-        imagex_correction:-80
+        imagew:105,
+        imageh:168,
+        imagey_correction:-143,
+        imagex_correction:-100
     },
     //Manuel Valls
     "man":{
-        color:"#cca",
+        color:"#848D64",
         image:"images/valls.png",
-        imagew:62,
-        imageh:141,
-        imagey_correction:-129,
-        imagex_correction:-60
+        imagew:82,
+        imageh:185,
+        imagey_correction:-156,
+        imagex_correction:-70
     },
     //Arnaud Montebourg
     "arn":{
-        color:"#DBC9C8",
+        color:"#442A33",
         image:"images/montebourg.png",
-        imagew:87,
-        imageh:119,
-        imagey_correction:-114,
-        imagex_correction:-80
+        imagew:120,
+        imageh:171,
+        imagey_correction:-140,
+        imagex_correction:-110
     },
     //Ségolène Royal
     "seg":{
-        color:"#F3BABE",
+        color:"#B05758",
         image:"images/sego.png",
-        imagew:50,
-        imageh:141,
-        imagey_correction:-128,
-        imagex_correction:-50
+        imagew:67,
+        imageh:187,
+        imagey_correction:-150,
+        imagex_correction:-60
     },
     //François Hollande
     "fra":{
-        color:"#C2D0E0",
+        color:"#252D3D",
         image:"images/hollande.png",
-        imagew:80,
-        imageh:114,
-        imagey_correction:-116,
-        imagex_correction:-80
+        imagew:120,
+        imageh:171,
+        imagey_correction:-151,
+        imagex_correction:-110
     },
     //Jean-Francois Baylet
     "jea":{
-        color:"#D5D8D9",
+        color:"#B47633",
         image:"images/baylet.png",
-        imagew:65,
-        imageh:132,
-        imagey_correction:-127,
-        imagex_correction:-60
+        imagew:85,
+        imageh:172,
+        imagey_correction:-152,
+        imagex_correction:-65
     }
 };

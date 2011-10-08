@@ -46,6 +46,7 @@ Highcharts.theme = {
 				font: '12px Arial, Helvetica, sans-serif'
 			}				
 		}
+
 	},
 	yAxis: {
 		alternateGridColor: null,
