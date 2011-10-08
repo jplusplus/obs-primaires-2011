@@ -79,10 +79,10 @@
             $(document).ready(function(){
 
                 renderChart();
-                refreshJSON();
+                refreshJSON(false);
 
                 $('#refresh').click(function(){
-                    refreshJSON();
+                    refreshJSON(true);
                 });
 
             });

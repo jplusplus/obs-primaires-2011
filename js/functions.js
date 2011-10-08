@@ -10,15 +10,16 @@ function throw_error(msg){
     }, 300);
 }
 
-function refreshJSON(){
+function refreshJSON(show_error){
     $('#loader').show();
     $.getJSON('http://nkb.fr/temp/refreshJSON.php?callback=?', function(data) {
         $('#loader').hide();
 
-        if (data.msg != "OK"){
-            throw_error(data.msg);
+        if (show_error == true){
+            if (data.msg != "OK"){
+                throw_error(data.msg);
+            }
         }
-        
         JSON2chart();
     });
 }
