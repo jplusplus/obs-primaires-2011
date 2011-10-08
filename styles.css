@@ -10,12 +10,22 @@ body{
     height:400px;
 }
 
+#loader{
+    display: none;
+}
+
 #error{
     display:none;
     color:#f00;
+    background-color: #fff;
     border:1px #f00 solid;
     padding:5px;
     margin:5px;
+    width: 200px;
+    position:absolute;
+    z-index: 5;
+    top:5px;
+    left:5px;
 }
 
 #container{

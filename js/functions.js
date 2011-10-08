@@ -11,7 +11,14 @@ function throw_error(msg){
 }
 
 function refreshJSON(){
+    $('#loader').show();
     $.getJSON('http://nkb.fr/temp/refreshJSON.php?callback=?', function(data) {
+        $('#loader').hide();
+
+        if (data.msg != "OK"){
+            throw_error(data.msg);
+        }
+        
         JSON2chart();
     });
 }

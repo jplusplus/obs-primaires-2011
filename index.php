@@ -97,6 +97,7 @@
             </div>
             <div id="button_holder">
                 <button id="refresh" class="refresh">Rafraîchir les résultats</button>
+                <img id='loader' src='images/ajax-loader.gif' border=0 />
             </div>
             <table class="metaresults">
                 <tr>
