@@ -9,7 +9,7 @@
 
         <script type="text/javascript" src="http://www.google.com/jsapi"></script>
         <script type="text/javascript">
-            google.load("jquery", "1.4.2");
+            google.load("jquery", "1.6.4");
             google.load("jqueryui", "1.8.16");
         </script>
         <script src="highcharts/highcharts.js" type="text/javascript"></script>
@@ -85,19 +85,24 @@
                     refreshJSON(true);
                 });
 
+                            
+                $('#error').click(function() {
+                    $(this).hide();
+                });
+
             });
         </script>
 
     </head>
     <body>
-        <div id="error"></div>
         <div id="container">
+            <div id="error">Les erreurs s'affichent ici.</div>
             <div id="chart">
 
             </div>
             <div id="button_holder">
-                <button id="refresh" class="refresh">Rafraîchir les résultats</button>
-                <img id='loader' src='images/ajax-loader.gif' border=0 />
+                <input id="refresh" class="refresh" value="Rafraîchir les résultats" type="button" />
+                <img id='loader' src='images/ajax-loader-arrows.gif' alt="Chargement" />
             </div>
             <table class="metaresults">
                 <tr>
@@ -111,10 +116,33 @@
                     <td>Nombre de bureaux comptabilisés: <span id="bureaux_vote"></span></td>
                 </tr>
             </table>
-            <div id="footer">
-                <p style="margin:0 0 5px 5px;">Ces résultats sont partiels et concernent uniquement les bureaux de vote dépouillés à cette heure et qui ont été validés par les instances départementales d’organisation des primaires.</p>
-                <div class="social"><img src="images/logo.png" style="float:left; margin:0 35px"/><fb:like style="float:right;" font="arial" width="105" show_faces="false" action="like" layout="button_count" href="http://www.facebook.com/LeNouvelObs" class=" fb_edge_widget_with_comment fb_iframe_widget"><span><iframe scrolling="no" id="ffef5a20edba0c" name="f24acc2f373cce4" style="border: medium none; overflow: hidden; height: 20px; width: 105px;" title="Like this content on Facebook." class="fb_ltr" src="http://www.facebook.com/plugins/like.php?action=like&amp;channel_url=http%3A%2F%2Fstatic.ak.fbcdn.net%2Fconnect%2Fxd_proxy.php%3Fversion%3D3%23cb%3Df5fc427923278a%26origin%3Dhttp%253A%252F%252Ftempsreel.nouvelobs.com%252Ff126f18fbfb82%26relation%3Dparent.parent%26transport%3Dpostmessage&amp;extended_social_context=false&amp;font=arial&amp;href=http%3A%2F%2Fwww.facebook.com%2FLeNouvelObs&amp;layout=button_count&amp;locale=fr_FR&amp;node_type=link&amp;sdk=joey&amp;show_faces=false&amp;width=105"></iframe></span></fb:like><iframe scrolling="no" frameborder="0" style="float:right;width:59px;height:20px;" src="http://platform.twitter.com/widgets/follow_button.html?lang=fr&amp;show_count=false&amp;link_color=ffffff&amp;screen_name=LeNouvelObs&amp;"></iframe></div>
-            </div>
+            <footer>
+                <p style="margin:0 0 5px 15px;">
+                    Ces résultats sont partiels et concernent uniquement les bureaux de vote dépouillés à cette heure et qui ont été validés par les instances départementales d’organisation des primaires.
+                </p>
+
+                <div class="social">
+                    <img src="images/logo.png" style="float:left; margin:0 35px"/>
+
+                    <div style="float:right;width:150px;height:20px;">
+                        <a href="https://twitter.com/LeNouvelObs" class="twitter-follow-button" data-show-count="false" data-lang="fr">Suivre @LeNouvelObs</a>
+                        <script src="//platform.twitter.com/widgets.js" type="text/javascript"></script>
+                    </div>
+
+                    <div id="fb-root"></div>
+                    <script>(function(d, s, id) {
+                      var js, fjs = d.getElementsByTagName(s)[0];
+                      if (d.getElementById(id)) {return;}
+                      js = d.createElement(s); js.id = id;
+                      js.src = "//connect.facebook.net/fr_FR/all.js#xfbml=1";
+                      fjs.parentNode.insertBefore(js, fjs);
+                    }(document, 'script', 'facebook-jssdk'));</script>
+
+                    <div class="fb-like" data-href="http://www.facebook.com/LeNouvelObs" data-send="false" data-layout="button_count" data-width="110" data-show-faces="false" style="margin-right:10px;float:right" data-font="verdana"></div>
+
+                    
+                </div>
+            </footer>
         </div>
     </body>
 </html>

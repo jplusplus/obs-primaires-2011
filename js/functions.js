@@ -1,3 +1,7 @@
+
+var fileProvider = "http://nkb.fr/temp";
+fileProvider = ".";
+
 function renderChart(){
     chart = new Highcharts.Chart(chart_options);
 }
@@ -11,22 +15,31 @@ function throw_error(msg){
 }
 
 function refreshJSON(show_error){
+    
     $('#loader').show();
-    $.getJSON('http://nkb.fr/temp/refreshJSON.php?callback=?', function(data) {
-        $('#loader').hide();
+    $("#refresh").prop("disabled", true);
+
+    $.getJSON(fileProvider + '/refreshJSON.php?callback=?', function(data) {
 
         if (show_error == true){
             if (data.msg != "OK"){
                 throw_error(data.msg);
-            }
+
+            }  
         }
+        
         JSON2chart();
+
     });
 }
 
 function JSON2chart(){
+
     //Récupère les données dans le fichier JSON local
-    $.getJSON('http://nkb.fr/temp/sendJSON.php?callback=?', function(data) {
+    $.getJSON(fileProvider + '/sendJSON.php?callback=?', function(data) {
+
+        $('#loader').hide();
+        $("#refresh").prop("disabled", false);
 
         if (data != false){
 

@@ -1,1 +1,36 @@
-{"heure_maj":"2011-10-08T18:18:55+02:00","bureaux_vote":"0\/9315","votants":0,"blancs_nuls":0,"arnaudmontebourg":{"nom_prenom":"Arnaud Montebourg","pourcentage":0,"voix":0},"martineaubry":{"nom_prenom":"Martine Aubry","pourcentage":0,"voix":0},"jeanmichelbaylet":{"nom_prenom":"Jean-Michel Baylet","pourcentage":0,"voix":0},"manuelvalls":{"nom_prenom":"Manuel Valls","pourcentage":0,"voix":0},"francoishollande":{"nom_prenom":"Fran\u00e7ois Hollande","pourcentage":0,"voix":0},"segoleneroyal":{"nom_prenom":"S\u00e9gol\u00e8ne Royal","pourcentage":0,"voix":0}}
+{
+   "heure_maj":"2011-10-08T18:18:55+02:00",
+   "bureaux_vote":"0\/9315",
+   "votants":10,
+   "blancs_nuls":0,
+   "arnaudmontebourg":{
+      "nom_prenom":"Arnaud Montebourg",
+      "pourcentage":10,
+      "voix":100
+   },
+   "martineaubry":{
+      "nom_prenom":"Martine Aubry",
+      "pourcentage":20,
+      "voix":200
+   },
+   "jeanmichelbaylet":{
+      "nom_prenom":"Jean-Michel Baylet",
+      "pourcentage":30,
+      "voix":300
+   },
+   "manuelvalls":{
+      "nom_prenom":"Manuel Valls",
+      "pourcentage":25,
+      "voix":250
+   },
+   "francoishollande":{
+      "nom_prenom":"Fran\u00e7ois Hollande",
+      "pourcentage":10,
+      "voix":100
+   },
+   "segoleneroyal":{
+      "nom_prenom":"S\u00e9gol\u00e8ne Royal",
+      "pourcentage":15,
+      "voix":150
+   }
+}

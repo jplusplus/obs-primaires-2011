@@ -1,35 +1,43 @@
 <?php
 
-error_reporting(0);
+    // desactive les erreurs    
+    ini_set('display_errors', 0);
+    ini_set('log_errors', 0);
+    error_reporting(null);
 
-$distant_file = "http://resultats.lesprimairescitoyennes.fr:184/json/";
-$file = "results.json";
-$expire = 60 * 10;
-$json = '';
+    $distant_file = "http://resultats.lesprimairescitoyennes.fr:184/json/";
+    // $distant_file = "./results_dummy.json";
 
-echo $_GET['callback'] . '( {';
+    $file = "results.json";
+    $expire = 60 * 10;
+    $json = '';
 
-if (filemtime($file) < (time() - $expire)) {
-    $ctx = stream_context_create(array(
-    'http' => array(
-        'timeout' => 3
-        )
-    )
-);
-    $json = file_get_contents($distant_file, 0, $ctx);
+    echo $_GET['callback'] . '( {';
 
-    if ($json != '') {
-        $fh = fopen($file, 'w');
-        fwrite($fh, $json);
-        fclose($fh);
+    if (! file_exists($file) || filemtime($file) < (time() - $expire) ) {
 
-        echo "'msg': 'OK'";
+        $ctx = stream_context_create(array(
+            'http' => array(
+                'timeout' => 3
+                )
+            )
+        );        
+
+        $json = file_get_contents($distant_file, 0, $ctx);
+
+        if ($json != '') {
+
+            // enregistre le json
+            file_put_contents($file, $json);
+            echo "'msg': 'OK'";
+
+        } else {
+            echo "'msg': 'Les résultats ne sont pas encore disponibles...'";
+        }
 
     } else {
-        echo "'msg': 'Le fichier contenant les derniers r&eacute;sultats n\'a pas &eacute;t&eacute; re&ccedil;u (err:timeout).'";
+        echo "'msg': 'Le PS n\'a pas encore mis &agrave; jour les r&eacute;sultats.'";
     }
-} else {
-    echo "'msg': 'Le PS n\'a pas encore mis &agrave; jour les r&eacute;sultats.'";
-}
-echo '});';
+
+    echo '});';
 ?>
