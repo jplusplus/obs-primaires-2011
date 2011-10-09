@@ -19,18 +19,19 @@ function refreshJSON(show_error){
     $('#loader').show();
     $("#refresh").prop("disabled", true);
 
-    $.getJSON(fileProvider + '/refreshJSON.php?callback=?', function(data) {
+    /* $.getJSON(fileProvider + '/refreshJSON.php?callback=?', function(data) {
 
         if (show_error == true){
             if (data.msg != "OK"){
                 throw_error(data.msg);
-
             }  
         }
         
         JSON2chart();
 
-    });
+    }); */
+
+    JSON2chart();
 }
 
 function JSON2chart(){
