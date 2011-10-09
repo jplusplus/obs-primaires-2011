@@ -1,6 +1,6 @@
 
 var fileProvider = "http://nkb.fr/temp";
-fileProvider = ".";
+// fileProvider = ".";
 
 function renderChart(){
     chart = new Highcharts.Chart(chart_options);
