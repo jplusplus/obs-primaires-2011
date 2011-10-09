@@ -5,32 +5,32 @@
    "blancs_nuls":0,
    "arnaudmontebourg":{
       "nom_prenom":"Arnaud Montebourg",
-      "pourcentage":10,
-      "voix":100
+      "pourcentage":0,
+      "voix":0
    },
    "martineaubry":{
       "nom_prenom":"Martine Aubry",
-      "pourcentage":20,
-      "voix":200
+      "pourcentage":0,
+      "voix":0
    },
    "jeanmichelbaylet":{
       "nom_prenom":"Jean-Michel Baylet",
-      "pourcentage":30,
-      "voix":300
+      "pourcentage":0,
+      "voix":0
    },
    "manuelvalls":{
       "nom_prenom":"Manuel Valls",
-      "pourcentage":25,
-      "voix":250
+      "pourcentage":0,
+      "voix":0
    },
    "francoishollande":{
       "nom_prenom":"Fran\u00e7ois Hollande",
-      "pourcentage":10,
-      "voix":100
+      "pourcentage":0,
+      "voix":0
    },
    "segoleneroyal":{
       "nom_prenom":"S\u00e9gol\u00e8ne Royal",
-      "pourcentage":15,
-      "voix":150
+      "pourcentage":0,
+      "voix":0
    }
 }
