@@ -28,7 +28,8 @@
             var chart_options ={
                 chart: {
                     renderTo: 'chart',
-                    defaultSeriesType: 'column'
+                    defaultSeriesType: 'column',
+                    margin: [80,50,70,50]
                 },
                 title: {
                     text: 'Résultats de la primaire socialiste'

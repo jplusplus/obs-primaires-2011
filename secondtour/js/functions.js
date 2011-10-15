@@ -138,7 +138,7 @@ var details_candidat = {
         image:"images/martine.png",
         imagew:105,
         imageh:168,
-        imagey_correction:-130,
+        imagey_correction:-170,
         imagex_correction:-275
     },
     //François Hollande
@@ -147,7 +147,7 @@ var details_candidat = {
         image:"images/hollande.png",
         imagew:120,
         imageh:171,
-        imagey_correction:-135,
-        imagex_correction:-290
+        imagey_correction:-180,
+        imagex_correction:-280
     }
 };
