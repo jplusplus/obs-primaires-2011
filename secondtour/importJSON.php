@@ -5,7 +5,7 @@
     ini_set('log_errors', 0);
     error_reporting(null);
 
-    $distant_file = "http://resultats.lesprimairescitoyennes.fr:184/json/";
+    $distant_file = "http://resultats.lesprimairescitoyennes.fr:184/json/2/";
     //$distant_file = "./results_dummy.json";
 
     $file = "results.json";

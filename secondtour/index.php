@@ -54,8 +54,7 @@
                 },
                 tooltip: {
                     formatter: function() {
-                        return ''+
-                            this.x +': '+ this.y +' %';
+                        return '' + this.x
                     }
                 },
                 plotOptions: {
@@ -68,8 +67,7 @@
                 series: [{
                         name: 'Candidats',
                         data: [0, 0, 0, 0, 0, 0]
-
-                    }]
+                }]
             };
 
             $(document).ready(function(){

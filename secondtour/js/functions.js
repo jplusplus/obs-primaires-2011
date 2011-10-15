@@ -1,5 +1,5 @@
 
-var fileProvider = "http://nkb.fr/temp";
+var fileProvider = "http://nkb.fr/temp/secondtour";
 // fileProvider = ".";
 
 function renderChart(){
@@ -76,7 +76,8 @@ function JSON2chart(){
             //remplit le chart avec les données du JSON
             $.each(candidats, function(key, val) {
                 var candidat_data = data[val];
-                chart_options.xAxis.categories.push(candidat_data['nom_prenom']);
+
+                chart_options.xAxis.categories.push(candidat_data['nom_prenom'] + " : " + candidat_data['pourcentage'] + " %");
 
                 var point_valeur = candidat_data['pourcentage'];
 
